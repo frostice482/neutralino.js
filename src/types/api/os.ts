@@ -76,4 +76,6 @@ export type KnownPath =
     'downloads' |
     'savedGames1' |
     'savedGames2' | 
-    'temp'
+    'temp' | 
+    'desktop' | 
+    'home'
