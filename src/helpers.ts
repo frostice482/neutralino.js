@@ -1,4 +1,6 @@
 export function base64ToBytesArray(data: string): ArrayBufferLike {
+    if (Uint8Array.fromBase64) return Uint8Array.fromBase64(data).buffer
+
     const binaryData: string = window.atob(data);
     const len: number = binaryData.length;
     const bytes: Uint8Array = new Uint8Array(len);
@@ -12,8 +14,9 @@ export function base64ToBytesArray(data: string): ArrayBufferLike {
 
 export function arrayBufferToBase64(data: ArrayBuffer): string {
     let bytes: Uint8Array = new Uint8Array(data);
-    let asciiStr: string = '';
+    if (bytes.toBase64) return bytes.toBase64()
 
+    let asciiStr: string = '';
     for (let byte of bytes) {
         asciiStr += String.fromCharCode(byte);
     }
