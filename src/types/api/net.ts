@@ -14,8 +14,10 @@ export interface NetRequestOptions {
         username: string,
         password: string
     },
-    encodePath: boolean,
-    keepAlive: boolean
+    encodePath?: boolean,
+    keepAlive?: boolean
+    body?: string
+    allowRedirects?: boolean
 }
 
 export interface NetResponse {
